@@ -18,27 +18,25 @@ colorPicker.addEventListener("change", value => {
 
 function createPixel(){
     let newItem = document.createElement("div");
-    newItem.className = "testColor";
+    newItem.className = "colorPixel";
     canvas.appendChild(newItem);
 }
 
 
 // Checking all with the new nodes
-const canvasNodeList = document.querySelectorAll("#canvas > .testColor")
+const canvasNodeList = document.querySelectorAll("#canvas > .colorPixel")
 
 function paint(pixel, color){
-    console.log("painted!")
     pixel.style.backgroundColor = color;
 }
 
-
 console.log(canvasNodeList)
 canvasNodeList.forEach((pixel) => {
-    pixel.addEventListener("mousedown", () => {
+    pixel.addEventListener("click", () => {
+        console.log("painted!")
         paint(pixel, color)
     })
 });
-
 
 
 function resetCanvas() {
@@ -47,3 +45,7 @@ function resetCanvas() {
 document.getElementById("reset-canvas").addEventListener("click", resetCanvas)
 document.getElementById("eraser").addEventListener("click", () => color= "#ffffff")
 
+
+
+
+document.getElementById("grid").addEventListener("click", () => canvasNodeList.forEach((pixel) => pixel.classList.toggle("grid")));

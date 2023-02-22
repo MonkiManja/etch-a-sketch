@@ -18,14 +18,17 @@ body{
     align-items: center;
 }
 
-.testColor {
+.colorPixel {
     background-color: #ffffff;
     width: 50px;
     height: 50px;
-    border-style: solid;
+}
+.grid{
     border-width: 1px;
+    border-style: solid;
 
 }
+
 
 #canvas{
     
@@ -50,3 +53,15 @@ body{
     color: white;
 }
 
+#cover{
+    display: block;
+    position:absolute;
+    width: 800px;
+    height: 800px;
+    background-color: black;
+    opacity: 0.3
+}
+.cover-off{
+    display: none;
+    background-color: transparent;
+}
