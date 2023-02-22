@@ -8,8 +8,18 @@ body{
     background-color: rgb(15,15,15);
 }
 
+#maindiv{
+    height: 100vh;
+    width: 100vw;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+}
+
 .testColor {
-    background-color: lightcoral;
+    background-color: rgb(220,220,220);
     width: 50px;
     height: 50px;
     border-style: solid;
@@ -18,11 +28,25 @@ body{
 }
 
 #canvas{
-    margin-inline: auto;
-    margin-top: 100px;
+    
     width: 800px;
     height: 800px;
     display: grid;
     grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
 
+}
+
+.aqua{
+    background-color: aqua;
+}
+
+#sidemenu {
+   display: block;
+   width: 500px;
+   height: 800px;
+   background-color: rgb(30,30,30);
+   border-radius: 40px;
+   padding: 50px;
+   display: flex;
+   color: white;
 }
