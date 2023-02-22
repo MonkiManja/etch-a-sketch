@@ -2,7 +2,7 @@ const canvas = document.getElementById("canvas");
 const colorPicker = document.getElementById("color-picker")
 
 
-let color ="#0000ff";
+let color ="#000000";
 
 let grid_num = 16;
 
@@ -33,8 +33,14 @@ function paint(pixel, color){
 
 console.log(canvasNodeList)
 canvasNodeList.forEach((pixel) => {
-    pixel.addEventListener("click", () => {
+    pixel.addEventListener("mousedown", () => {
         paint(pixel, color)
     })
 });
-// Now the grid is done. Now i have to think how to draw in it
+
+
+
+function resetCanvas() {
+    canvasNodeList.forEach((pixel) => pixel.style.backgroundColor = "#ffffff")
+}
+document.getElementById("reset-canvas").addEventListener("click", resetCanvas)
