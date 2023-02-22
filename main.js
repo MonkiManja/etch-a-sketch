@@ -3,8 +3,8 @@ const colorPicker = document.getElementById("color-picker")
 
 
 let color ="#000000";
-
 let grid_num = 16;
+
 
 for(let i = 0; i < grid_num ** 2; i++){
     createPixel();
@@ -31,6 +31,7 @@ function paint(pixel, color){
     pixel.style.backgroundColor = color;
 }
 
+
 console.log(canvasNodeList)
 canvasNodeList.forEach((pixel) => {
     pixel.addEventListener("mousedown", () => {
@@ -44,3 +45,5 @@ function resetCanvas() {
     canvasNodeList.forEach((pixel) => pixel.style.backgroundColor = "#ffffff")
 }
 document.getElementById("reset-canvas").addEventListener("click", resetCanvas)
+document.getElementById("eraser").addEventListener("click", () => color= "#ffffff")
+
