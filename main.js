@@ -24,6 +24,8 @@ function paint(pixel, color){
 
 console.log(canvasNodeList)
 canvasNodeList.forEach((pixel) => {
-    pixel.addEventListener("click", paint(pixel, color))
+    pixel.addEventListener("click", () => {
+        paint(pixel, color)
+    })
 });
 // Now the grid is done. Now i have to think how to draw in it
