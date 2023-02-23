@@ -43,6 +43,7 @@ body{
 #sidemenu {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 2em;
     width: 500px;
     height: 800px;
@@ -64,4 +65,29 @@ body{
 .cover-off{
     display: none;
     background-color: transparent;
+}
+
+#color-picker {
+    border-radius: 3px;
+    border-color: transparent;
+    background-color: transparent;
+    height: 50px;
+    width: 50px;
+
+}
+
+#buttons-div{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+#buttons-div > button{
+    border-radius: 20px;
+    height: 40px;
+    width: 200px;
+}
+#buttons-div >button:active{
+    background-color: rgb(200,200,200);
 }
