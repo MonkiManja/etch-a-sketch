@@ -8,6 +8,11 @@ let grid_num = 0;
 
 
 function gridMaker(grid_num) {
+    function createPixel(){
+        let newItem = document.createElement("div");
+        newItem.className = "colorPixel";
+        canvas.appendChild(newItem);
+    }
     document.querySelector("#screen-sizer-div > h1").textContent = grid_num + " x " + grid_num;
     canvas.style.gridTemplateColumns = ""
     let autoRecorder = "";
@@ -30,17 +35,6 @@ colorPicker.addEventListener("change", value => {
 })
 
 // Canvas painter start
-function createPixel(){
-    let newItem = document.createElement("div");
-    newItem.className = "colorPixel";
-    canvas.appendChild(newItem);
-}
-
-
-
-function paint(pixel, color){
-    pixel.style.backgroundColor = color;
-}
 
 
 
@@ -61,7 +55,6 @@ document.getElementById("grid").addEventListener("click", () => canvasNodeList.f
 screenSizer.addEventListener("change", (e) => {
     grid_num = e.target.value;
     resetCanvas();
-    console.log(grid_num);
     while(canvas.firstChild){
         canvas.removeChild(canvas.firstChild);
     }
@@ -72,13 +65,32 @@ screenSizer.addEventListener("change", (e) => {
         pixel.style.width = `${800 / (grid_num)}px`;
         pixel.style.height = `${800 / (grid_num)}px`;
     })
-    //Setting up nodepainter
+
+    function paint(pixel, color){
+        pixel.style.backgroundColor = color;
+    }
+    
+    let isPainting = false
     canvasNodeList.forEach((pixel) => {
-        pixel.addEventListener("click", () => {
-            console.log("painted!")
-            paint(pixel, color)
+        
+        pixel.addEventListener("mousedown", ()=> {
+            console.log("mousedown")
+            isPainting = true;
+        })
+        pixel.addEventListener("mouseup", ()=> {
+            console.log("mouseup")
+            isPainting = false;
+        })
+        pixel.addEventListener("mousemove", ()=> {
+            console.log("hover")
+            if(isPainting){
+                console.log("hover")
+                paint(pixel, color);
+            }
         })
     });
+
+    
    
     
 
