@@ -4,7 +4,7 @@ const screenSizer = document.getElementById("screen-sizer")
 let canvasNodeList;
 
 let color ="#000000";
-let grid_num = 16;
+let grid_num = 0;
 
 
 function gridMaker(grid_num) {

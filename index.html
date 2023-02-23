@@ -7,20 +7,27 @@
     <title>Etch-a-Sketch</title>
     <script src=main.js defer></script>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <div id="maindiv">
         <div id="sidemenu">
+            <h1>Monki's art machine</h1>
             <label for="color-picker"><input id="color-picker" type ='color'></label>
             <div id="screen-sizer-div">
                 <input type="range" id="screen-sizer" max="64" min="16">
                 <h1></h1>
+                <p><br>RECOMMENDED GRID SIZES: 16, 32, 48 64</p>
             </div>
             <div id="buttons-div">
                 <button id="reset-canvas">Reset canvas</button>
                 <button id="grid">Grid</button>
                 <button id="eraser">Eraser</button>
             </div>
+            <p>If the slider says 0x0, select a canvas size to begin.<br>If the color is not working, select another color and change back to it</p>
         </div>
 
         <div id="canvas"></div>
