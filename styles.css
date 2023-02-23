@@ -54,18 +54,6 @@ body{
     color: white;
 }
 
-#cover{
-    display: block;
-    position:absolute;
-    width: 800px;
-    height: 800px;
-    background-color: black;
-    opacity: 0.3
-}
-.cover-off{
-    display: none;
-    background-color: transparent;
-}
 
 #color-picker {
     border-radius: 3px;
