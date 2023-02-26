@@ -87,12 +87,13 @@ body{
     gap: 10px;
 }
 #buttons-div > button{
+    background-color: rgb(240,240,240);
     border-radius: 20px;
     height: 40px;
     width: 200px;
 }
 #buttons-div >button:active{
-    background-color: rgb(200,200,200);
+    background-color: rgb(145, 194, 197);
 }
 #screen-sizer-div{
     display:flex;

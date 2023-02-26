@@ -1,9 +1,13 @@
 const canvas = document.getElementById("canvas");
-const colorPicker = document.getElementById("color-picker")
-const screenSizer = document.getElementById("screen-sizer")
+const colorPicker = document.getElementById("color-picker");
+const screenSizer = document.getElementById("screen-sizer");
+const colorRandomizer = document.getElementById("randomizer");
 let canvasNodeList;
+let saveColor;
+
 
 let color ="#000000";
+let randomizer = false;
 let grid_num = 0;
 
 
@@ -34,22 +38,41 @@ colorPicker.addEventListener("change", value => {
     console.log("after: ", color)
 })
 
-// Canvas painter start
 
-
-
-//Canvas painter end
 
 function resetCanvas() {   
     canvasNodeList.forEach((pixel) => pixel.style.backgroundColor = "#ffffff")
 }
 document.getElementById("reset-canvas").addEventListener("click", resetCanvas) //Canvas resetter
-document.getElementById("eraser").addEventListener("click", () => color= "#ffffff") //Eraser button
+document.getElementById("eraser").addEventListener("click", (e) => {
+    if(color != "#ffffff"){
+        e.target.style.backgroundColor =  "rgb(145, 194, 197)";
+        saveColor = color
+        color = "#ffffff"
+    } else {
+        e.target.style.backgroundColor = "rgb(230,230,230)";
+        color = saveColor
+    }
+}) 
 
-
-
-//Grid button
-document.getElementById("grid").addEventListener("click", () => canvasNodeList.forEach((pixel) => pixel.classList.toggle("grid")));
+//Eraser button
+colorRandomizer.addEventListener("click", () => {
+    if(randomizer == true){
+        colorRandomizer.style.backgroundColor = "rgb(230,230,230)"
+        randomizer = false;
+    } else {
+        colorRandomizer.style.backgroundColor =  "rgb(145, 194, 197)"
+        randomizer = true;
+    }
+});
+document.getElementById("grid").addEventListener("click", (e) => {
+    canvasNodeList.forEach((pixel) => {pixel.classList.toggle("grid")});
+    if(document.querySelector("#canvas > div").classList.contains("grid")){
+        e.target.style.backgroundColor =  "rgb(145, 194, 197)";
+    } else {
+        e.target.style.backgroundColor = "rgb(230,230,230)";
+    }
+});
 
 
 screenSizer.addEventListener("change", (e) => {
@@ -67,31 +90,32 @@ screenSizer.addEventListener("change", (e) => {
     })
 
     function paint(pixel, color){
-        pixel.style.backgroundColor = color;
+        const randomHex = () => {
+            let n = (Math.random() * 0xfffff * 1000000).toString(16);
+            return '#' + n.slice(0, 6);
+          };
+          
+        if(randomizer == true){ //rainbow color future implementation
+            pixel.style.backgroundColor = randomHex();
+        } else {
+            pixel.style.backgroundColor = color;
+        }
     }
     
     let isPainting = false
     canvasNodeList.forEach((pixel) => {
-        
         pixel.addEventListener("mousedown", ()=> {
-            console.log("mousedown")
             isPainting = true;
         })
         pixel.addEventListener("mouseup", ()=> {
-            console.log("mouseup")
             isPainting = false;
         })
         pixel.addEventListener("mousemove", ()=> {
-            console.log("hover")
+    
             if(isPainting){
-                console.log("hover")
                 paint(pixel, color);
             }
         })
     });
-
-    
-   
-    
 
 })

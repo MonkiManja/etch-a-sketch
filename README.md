@@ -12,6 +12,6 @@ Didn't check any kind of solution or help from other entries. This is all made b
 
 (Maybe) future implementations: 
 - Color saver
-- Smooth drawing
+- Smoother drawing? 
 - Light-mode/Dark-mode
 - Rainbow drawing
